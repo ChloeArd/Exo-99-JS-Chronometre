@@ -3,14 +3,15 @@ let seconds = document.getElementById("seconds");
 let decompte = 0;
 let timeoutID;
 let countUp = function() {
-    timeoutID = setTimeout(function () {
-        if(decompte <= 60){
-            seconds.innerHTML = decompte;
-            decompte++;
-            countUp();
-        }
-    }, 1000)
+    timeoutID = setInterval(function (){
+        decompte++;
+        seconds.innerHTML = decompte;
+        console.log("le decompte est de " + decompte);
+    }, 1000);
 };
+setTimeout(function (){
+    countUp();
+},1000);
 
 // How can you make it stop counting?
 let stopCountUp = function() {
